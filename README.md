@@ -5,7 +5,7 @@
 ![效果图](https://github.com/shouzhong/TabLayout/blob/master/img/1.jpg)
 ## 依赖
 ```
-implementation 'com.shouzhong:TabLayout:1.0.0'
+implementation 'com.shouzhong:TabLayout:1.0.1'
 ```
 ## 属性说明
 

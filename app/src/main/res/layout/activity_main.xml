@@ -72,7 +72,8 @@
         app:tabIndicatorMode="normal"
         app:tabPaddingStart="20dp"
         app:tabPaddingEnd="20dp"
-        app:tabMode="scrollable" />
+        app:tabMode="scrollable"
+        app:tabTextAppearance="@style/tab_test"/>
 
     <com.shouzhong.tablayout.TabLayout
         android:id="@+id/tab6"
@@ -82,7 +83,7 @@
         app:tabIndicatorColor="#00ff00"
         app:tabIndicatorHeight="2dp"
         app:tabSelectedTextColor="#00ff00"
-        app:tabTextColor="#333333"
+        app:tabTextColor="#0000ff"
         app:tabTextSize="15sp"
         app:tabIndicatorMode="text"
         app:tabPaddingStart="20dp"

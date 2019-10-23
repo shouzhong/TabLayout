@@ -7,7 +7,7 @@
         <item name="tabPaddingStart">0dp</item>
         <item name="tabPaddingEnd">0dp</item>
 <!--        <item name="tabBackground">?attr/selectableItemBackground</item>-->
-<!--        <item name="tabTextAppearance">@style/TextAppearance.Design.Tab</item>-->
+        <item name="tabTextAppearance">@style/TextAppearance.Design.Tab</item>
         <item name="tabSelectedTextColor">?android:textColorPrimary</item>
     </style>
     <dimen name="design_tab_max_width">1000dp</dimen>

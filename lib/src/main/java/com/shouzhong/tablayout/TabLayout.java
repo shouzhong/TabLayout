@@ -13,7 +13,10 @@ import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.text.Layout;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.TextUtils;
+import android.text.style.TypefaceSpan;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -1404,6 +1407,10 @@ public class TabLayout extends HorizontalScrollView {
          */
         @NonNull
         public Tab setText(@Nullable CharSequence text) {
+            if (text != null && text instanceof String) {
+                text = new SpannableString(text);
+                ((SpannableString) text).setSpan(new TypefaceSpan("sans-self"), 0, text.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            }
             mText = text;
             updateView();
             return this;
