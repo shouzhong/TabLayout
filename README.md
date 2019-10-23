@@ -2,7 +2,7 @@
 ## 说明
 类原生TabLayout，在此基础上增加了一些常用的属性设置，原生TabLayout属性基本通用
 ## 效果图
-![效果图](https://github.com/shouzhong/Scanner/blob/master/img/1.jpg)
+![效果图](https://github.com/shouzhong/TabLayout/blob/master/img/1.jpg)
 ## 依赖
 ```
 implementation 'com.shouzhong:TabLayout:1.0.0'
