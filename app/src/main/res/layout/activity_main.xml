@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.shouzhong.tablayout.TabLayout
+        android:id="@+id/tab1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:tabIndicatorColor="#00ff00"
+        app:tabIndicatorHeight="2dp"
+        app:tabSelectedTextColor="#00ff00"
+        app:tabTextColor="#333333"
+        app:tabTextSize="15sp"
+        app:tabIndicatorMode="text"/>
+
+    <com.shouzhong.tablayout.TabLayout
+        android:id="@+id/tab2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        app:tabIndicatorColor="#00ff00"
+        app:tabIndicatorHeight="2dp"
+        app:tabSelectedTextColor="#00ff00"
+        app:tabTextColor="#333333"
+        app:tabTextSize="15sp"
+        app:tabIndicatorMode="text"
+        app:tabIndicatorWidthExtra="5dp"/>
+
+    <com.shouzhong.tablayout.TabLayout
+        android:id="@+id/tab3"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        app:tabIndicatorColor="#00ff00"
+        app:tabIndicatorHeight="2dp"
+        app:tabSelectedTextColor="#00ff00"
+        app:tabTextColor="#333333"
+        app:tabTextSize="15sp"
+        app:tabIndicatorMode="text"
+        app:tabIndicatorWidthExtra="-5dp"/>
+
+    <com.shouzhong.tablayout.TabLayout
+        android:id="@+id/tab4"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        app:tabIndicatorColor="#00ff00"
+        app:tabIndicatorHeight="2dp"
+        app:tabSelectedTextColor="#00ff00"
+        app:tabTextColor="#333333"
+        app:tabTextSize="15sp"
+        app:tabIndicatorMode="fixed"
+        app:tabIndicatorWidth="50dp"
+        app:tabPaddingStart="20dp"
+        app:tabPaddingEnd="20dp"
+        app:tabMode="scrollable" />
+
+    <com.shouzhong.tablayout.TabLayout
+        android:id="@+id/tab5"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        app:tabIndicatorColor="#00ff00"
+        app:tabIndicatorHeight="2dp"
+        app:tabSelectedTextColor="#00ff00"
+        app:tabTextColor="#333333"
+        app:tabTextSize="15sp"
+        app:tabIndicatorMode="normal"
+        app:tabPaddingStart="20dp"
+        app:tabPaddingEnd="20dp"
+        app:tabMode="scrollable" />
+
+    <com.shouzhong.tablayout.TabLayout
+        android:id="@+id/tab6"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        app:tabIndicatorColor="#00ff00"
+        app:tabIndicatorHeight="2dp"
+        app:tabSelectedTextColor="#00ff00"
+        app:tabTextColor="#333333"
+        app:tabTextSize="15sp"
+        app:tabIndicatorMode="text"
+        app:tabPaddingStart="20dp"
+        app:tabPaddingEnd="20dp"
+        app:tabMode="scrollable" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

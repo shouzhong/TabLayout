@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Base.Widget.Design.TabLayout" parent="android:Widget">
+        <item name="tabMaxWidth">@dimen/design_tab_max_width</item>
+        <item name="tabIndicatorColor">?attr/colorAccent</item>
+        <item name="tabIndicatorHeight">0dp</item>
+        <item name="tabPaddingStart">0dp</item>
+        <item name="tabPaddingEnd">0dp</item>
+<!--        <item name="tabBackground">?attr/selectableItemBackground</item>-->
+<!--        <item name="tabTextAppearance">@style/TextAppearance.Design.Tab</item>-->
+        <item name="tabSelectedTextColor">?android:textColorPrimary</item>
+    </style>
+    <dimen name="design_tab_max_width">1000dp</dimen>
+    <dimen name="design_tab_scrollable_min_width">0dp</dimen>
+    <dimen name="design_tab_text_size">14sp</dimen>
+    <dimen name="design_tab_text_size_2line">12sp</dimen>
+
+    <style name="Widget.Design.TabLayout" parent="Base.Widget.Design.TabLayout">
+        <item name="tabGravity">fill</item>
+        <item name="tabMode">fixed</item>
+    </style>
+</resources>

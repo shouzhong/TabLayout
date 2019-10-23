@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TabLayout" >
+        <!-- 是否需要动画 -->
+        <attr name="tabNeedSwitchAnimation" format="boolean" />
+        <!-- 指示线相对于字长度 -->
+        <attr name="tabIndicatorWidthExtra" format="dimension" />
+        <!-- 指示器模式 -->
+        <attr name="tabIndicatorMode">
+            <enum name="normal" value="0"/>
+            <enum name="text" value="1"/>
+            <enum name="fixed" value="2"/>
+        </attr>
+        <!-- 指示器宽度 -->
+        <attr name="tabIndicatorWidth" format="dimension" />
+        <!-- 文字大小 -->
+        <attr name="tabTextSize" format="dimension" />
+        <attr name="tabPaddingStart" format="dimension" />
+        <attr name="tabPaddingEnd" format="dimension" />
+    </declare-styleable>
+</resources>
