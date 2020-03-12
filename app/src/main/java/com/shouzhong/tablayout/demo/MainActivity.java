@@ -3,7 +3,6 @@ package com.shouzhong.tablayout.demo;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -19,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout tab4;
     private TabLayout tab5;
     private TabLayout tab6;
+
     private ViewPager vp;
 
     @Override
@@ -64,9 +64,6 @@ public class MainActivity extends AppCompatActivity {
             tab5.addTab(tab);
         }
         vp.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
-
-            private String[] titles = {"上海", "头条推荐", "生活", "娱乐八卦", "体育", "上海", "头条推荐", "生活", "娱乐八卦", "体育"};
-
             @NonNull
             @Override
             public Fragment getItem(int position) {
@@ -75,15 +72,11 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public int getCount() {
-                return titles.length;
-            }
-
-            @Nullable
-            @Override
-            public CharSequence getPageTitle(int position) {
-                return titles[position];
+                return 5;
             }
         });
+        vp.setCurrentItem(2);
+        tab6.setAdapter(new TabAdapter());
         tab6.setupWithViewPager(vp);
     }
 }

@@ -80,15 +80,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
-        app:tabIndicatorColor="#00ff00"
-        app:tabIndicatorHeight="2dp"
-        app:tabSelectedTextColor="#00ff00"
-        app:tabTextColor="#0000ff"
-        app:tabTextSize="15sp"
-        app:tabIndicatorMode="text"
-        app:tabPaddingStart="20dp"
-        app:tabPaddingEnd="20dp"
-        app:tabMode="scrollable" />
+         />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/vp"

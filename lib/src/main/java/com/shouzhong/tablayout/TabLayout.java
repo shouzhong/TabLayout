@@ -262,9 +262,11 @@ public class TabLayout extends HorizontalScrollView {
     private OnTabSelectedListener mSelectedListener;
     private final ArrayList<OnTabSelectedListener> mSelectedListeners = new ArrayList<>();
     private OnTabSelectedListener mCurrentVpSelectedListener;
+    private OnTabSelectedListener mCustomTabSelectedListener;
 
     private ValueAnimator mScrollAnimator;
 
+    private ITabAdapter mTabAdapter;
     ViewPager mViewPager;
     private PagerAdapter mPagerAdapter;
     private DataSetObserver mPagerAdapterObserver;
@@ -486,6 +488,7 @@ public class TabLayout extends HorizontalScrollView {
         if (setSelected) {
             tab.select();
         }
+        if (mTabAdapter != null) mTabAdapter.onBindView(getTabAt(position).getCustomView(), position, setSelected);
     }
 
     private void addTabFromItemView(@NonNull TabItem item) {
@@ -746,6 +749,28 @@ public class TabLayout extends HorizontalScrollView {
     }
 
     /**
+     * 自定义tab
+     *
+     * @param adapter
+     */
+    public void setAdapter(ITabAdapter adapter) {
+        mTabAdapter = adapter;
+        removeAllTabs();
+        if (mCustomTabSelectedListener != null) {
+            removeOnTabSelectedListener(mCustomTabSelectedListener);
+            mCustomTabSelectedListener = null;
+        }
+        if (mTabAdapter != null) {
+            for (int i = 0; i < mTabAdapter.getCount(); i++) {
+                addTab(newTab().setCustomView(mTabAdapter.onCreateView(LayoutInflater.from(getContext()))));
+            }
+            mCustomTabSelectedListener = new CustomTabSelectedListener(mTabAdapter);
+            addOnTabSelectedListener(mCustomTabSelectedListener);
+        }
+        populateFromPagerAdapter();
+    }
+
+    /**
      * The one-stop shop for setting up this {@link TabLayout} with activity {@link ViewPager}.
      *
      * <p>This is the same as calling {@link #setupWithViewPager(ViewPager, boolean)} with
@@ -912,12 +937,16 @@ public class TabLayout extends HorizontalScrollView {
     }
 
     void populateFromPagerAdapter() {
-        removeAllTabs();
+        if (mTabAdapter == null) {
+            removeAllTabs();
+        }
 
         if (mPagerAdapter != null) {
             final int adapterCount = mPagerAdapter.getCount();
-            for (int i = 0; i < adapterCount; i++) {
-                addTab(newTab().setText(mIsVisible ? mPagerAdapter.getPageTitle(i) : ""), false);
+            if (mTabAdapter == null) {
+                for (int i = 0; i < adapterCount; i++) {
+                    addTab(newTab().setText(mIsVisible ? mPagerAdapter.getPageTitle(i) : ""), false);
+                }
             }
 
             // Make sure we reflect the currently set ViewPager item
@@ -925,6 +954,7 @@ public class TabLayout extends HorizontalScrollView {
                 final int curItem = mViewPager.getCurrentItem();
                 if (curItem != getSelectedTabPosition() && curItem < getTabCount()) {
                     selectTab(getTabAt(curItem));
+                    if (mTabAdapter != null) mTabAdapter.onBindView(getTabAt(curItem).getCustomView(), curItem, true);
                 }
             }
         }
@@ -2280,6 +2310,30 @@ public class TabLayout extends HorizontalScrollView {
 
         void reset() {
             mPreviousScrollState = mScrollState = SCROLL_STATE_IDLE;
+        }
+    }
+
+    public static class CustomTabSelectedListener implements TabLayout.OnTabSelectedListener {
+        private final ITabAdapter adapter;
+
+        public CustomTabSelectedListener(ITabAdapter adapter) {
+            this.adapter = adapter;
+        }
+
+
+        @Override
+        public void onTabSelected(Tab tab) {
+            if (adapter != null) adapter.onBindView(tab.getCustomView(), tab.getPosition(), true);
+        }
+
+        @Override
+        public void onTabUnselected(Tab tab) {
+            if (adapter != null) adapter.onBindView(tab.getCustomView(), tab.getPosition(), false);
+        }
+
+        @Override
+        public void onTabReselected(Tab tab) {
+
         }
     }
 
